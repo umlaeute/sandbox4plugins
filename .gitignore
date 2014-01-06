@@ -5,16 +5,21 @@
 *.[oa]
 *~
 ## autoconf
+*.la
+*.lo
+## autoconf
 .deps/
+.libs/
+autom4te.cache/
 Makefile
 Makefile.in
 aclocal.m4
-autom4te.cache/
-config.h.in
-config.log
-config.status
+config.*
 configure
 depcomp
 install-sh
 missing
 stamp-h1
+compile
+libtool
+ltmain.sh
