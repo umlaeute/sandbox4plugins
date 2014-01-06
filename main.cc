@@ -9,20 +9,7 @@
 
 
 void loadPlugins(std::vector<std::string>args) {
-#if 0
-  for(unsigned int i=0; i<args.size(); i++) {
-    std::string libname=args[i];
-    std::cout << "library["<<i<<"] = " << libname << std::endl;
-    try {
-      Dylib dl(libname);
-      dl.run("plugin_setup"); // run setup-function, just in case
-    } catch (MyException&e) {
-      e.report();
-    }
-  }
-#else
   PluginFactory<plugin>::loadPlugins(args);
-#endif
 }
 
 std::vector<std::string>getCstringArray(int argc, char**argv) {
