@@ -12,6 +12,7 @@ void loadPlugins(std::vector<std::string>args) {
     std::cout << "library["<<i<<"] = " << libname << std::endl;
     try {
       Dylib dl(libname);
+      dl.run("plugin_setup"); // run setup-function, just in case
     } catch (MyException&e) {
       e.report();
     }
