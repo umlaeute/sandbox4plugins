@@ -8,3 +8,4 @@ host_SOURCES = main.cc \
 	dylib.cc \
 	exception.cc \
 	pluginfactory.cc plugin.cc
+host_CPPFLAGS = -DINTERN
