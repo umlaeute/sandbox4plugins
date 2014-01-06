@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-#include <typeinfo>
+//#include <typeinfo>
 #include <iostream>
 
 class EXTERN BasePluginFactory {
