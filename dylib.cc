@@ -1,20 +1,3 @@
-////////////////////////////////////////////////////////
-//
-// GEM - Graphics Environment for Multimedia
-//
-// zmoelnig@iem.at
-//
-// Implementation file
-//
-//    Copyright (c) 1997-2000 Mark Danks.
-//    Copyright (c) 2001-2011 IOhannes m zmölnig. forum::für::umläute. IEM. zmoelnig@iem.at
-//    Copyright (c) 2002 James Tittle & Chris Clepper
-//    For information on usage and redistribution, and for a DISCLAIMER OF ALL
-//    WARRANTIES, see the file, "GEM.LICENSE.TERMS" in this distribution.
-//
-// a wrapper for calling Pd's sys_register_loader()
-//
-/////////////////////////////////////////////////////////
 #ifdef _MSC_VER
 # pragma warning( disable: 4091)
 # define snprintf _snprintf
@@ -55,51 +38,26 @@ public:
 
 
   DylibHandle(void) :
-    fullname(std::string()),
+  fullname(std::string()),
 #ifdef DL_OPEN
-    dlhandle(NULL),
+  dlhandle(NULL),
 #endif
 #ifdef _WIN32
-    w32handle(NULL),
+  w32handle(NULL),
 #endif
-    dummy2(0)
+  dummy2(0)
   {;}
 
   ~DylibHandle(void) {
     close();
   }
 
-  static std::string getFullfilename(const t_canvas*canvas, const char*filename, const char*ext) {
-    std::string fullname_;
-
-    char buf[MAXPDSTRING];
-    char*bufptr;
-    int fd=0;
-    if ((fd=canvas_open(const_cast<t_canvas*>(canvas), filename, ext, buf, &bufptr, MAXPDSTRING, 1))>=0){
-      gem::files::close(fd);
-      fullname_=buf;
-      fullname_+="/";
-      fullname_+=bufptr;
-    } else {
-      if(canvas) {
-        canvas_makefilename(const_cast<t_canvas*>(canvas), const_cast<char*>(filename), buf, MAXPDSTRING);
-        fullname_=buf;
-      } else {
-        return std::string("");
-      }
-    }
-    return fullname_;
-  }
-
   static DylibHandle*open(const std::string filename) {
     DylibHandle*handle=new DylibHandle();
 
-    char buf[MAXPDSTRING];
     if(filename.empty()) {
       throw(MyException(std::string("No DyLib name given!")));
     }
-
-    sys_bashfilename(filename.c_str(), buf);
 
 #ifdef DL_OPEN
     handle->dlhandle=dlopen(filename.c_str(), RTLD_NOW);
@@ -110,33 +68,33 @@ public:
 #endif
 #ifdef _WIN32
     UINT errorboxflags=SetErrorMode(SEM_FAILCRITICALERRORS);
-	SetLastError(0);
-    handle->w32handle=LoadLibrary(buf);
-	DWORD errorNumber = GetLastError();
-    errorboxflags=SetErrorMode(errorboxflags);
-    if(handle->w32handle) {
-      handle->fullname=filename;
-      return handle;
-    }
+    SetLastError(0);
+    handle->w32handle=LoadLibrary(filename.c_str()));
+  DWORD errorNumber = GetLastError();
+  errorboxflags=SetErrorMode(errorboxflags);
+  if(handle->w32handle) {
+    handle->fullname=filename;
+    return handle;
+  }
 #endif
 
-    delete handle;
-    handle=NULL;
+  delete handle;
+  handle=NULL;
 
-    std::string errormsg;
+  std::string errormsg;
 #ifdef DL_OPEN
-    errormsg=dlerror();
-    if(!errormsg.empty()) {
-      std::string error="dlerror '";
-      error+=errormsg;
-      error+="'";
-      throw(MyException(error));
-    }
+  errormsg=dlerror();
+  if(!errormsg.empty()) {
+    std::string error="dlerror '";
+    error+=errormsg;
+    error+="'";
+    throw(MyException(error));
+  }
 #endif
 #ifdef _WIN32
-    LPVOID lpErrorMessage=NULL;
-	if(errorNumber) {
-		FormatMessage(
+  LPVOID lpErrorMessage=NULL;
+  if(errorNumber) {
+    FormatMessage(
                   FORMAT_MESSAGE_ALLOCATE_BUFFER |
                   FORMAT_MESSAGE_FROM_SYSTEM,
                   NULL,
@@ -144,46 +102,41 @@ public:
                   MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                   (LPTSTR) &lpErrorMessage,
                   0, NULL );
-	}
-	std::cerr << "Dylib failed: #"<<errorNumber<<": ";
-	if(lpErrorMessage) {
-		std::cerr<<(const char*)lpErrorMessage;
-	}else {
-		std::cerr<<"(unknown)";
-	}
-	std::cerr<<std::endl;
-    std::string error = "DLLerror(";
-    char errbuf[10];
-    snprintf(errbuf, 10, "0x%x", errorNumber);
-    errbuf[10-1]=0;
-    error+=errbuf;
-	error+=")";
-	if(lpErrorMessage) {
-		error+=(const char*)lpErrorMessage;
-	}
-	std::cerr << "Dylib throwing: "<< error << std::endl;
-	throw(MyException(std::string(error)));
+  }
+  std::cerr << "Dylib failed: #"<<errorNumber<<": ";
+  if(lpErrorMessage) {
+    std::cerr<<(const char*)lpErrorMessage;
+  }else {
+    std::cerr<<"(unknown)";
+  }
+  std::cerr<<std::endl;
+  std::string error = "DLLerror(";
+  char errbuf[10];
+  snprintf(errbuf, 10, "0x%x", errorNumber);
+  errbuf[10-1]=0;
+  error+=errbuf;
+  error+=")";
+  if(lpErrorMessage) {
+    error+=(const char*)lpErrorMessage;
+  }
+  std::cerr << "Dylib throwing: "<< error << std::endl;
+  throw(MyException(std::string(error)));
 #endif
 
-    return NULL;
-  }
+  return NULL;
+}
 
-  static DylibHandle*open(const CPPExtern*obj, const std::string filename, const std::string extension) {
-    const t_canvas*canvas=(obj)?(canvas=const_cast<CPPExtern*>(obj)->getCanvas()):0;
-    const char*ext=extension.c_str();
-
-	//std::string fullname=getFullfilename(canvas, filename.c_str(), ext);
-	std::string fullname=gem::files::getFullpath(filename+ext, obj);
+  static DylibHandle*open(const std::string filename, const std::string extension) {
+    std::string fullname=filename+extension;
     if(fullname.empty()) {
-      //fullname=getFullfilename(canvas, filename.c_str(), DylibHandle::defaultExtension.c_str());
-      fullname=gem::files::getFullpath(filename+DylibHandle::defaultExtension, obj);
+      fullname=filename+DylibHandle::defaultExtension;
     }
 
     if(fullname.empty()) {
       std::string error="couldn't find '";
       error+=filename;
       error+="'.'";
-      error+=ext;
+      error+=extension;
       error+="'";
       throw(MyException(error));
     }
@@ -191,54 +144,34 @@ public:
     return open(fullname);
   }
 
-  static const std::string defaultExtension;
+static const std::string defaultExtension;
 
-  void close(void) {
+void close(void) {
 #ifdef DL_OPEN
-    if(dlhandle)
-      dlclose(dlhandle);
-    dlhandle=NULL;
+  if(dlhandle)
+    dlclose(dlhandle);
+  dlhandle=NULL;
 #endif
 #ifdef _WIN32
-    if(w32handle)
-      FreeLibrary(w32handle);
-    w32handle=NULL;
+  if(w32handle)
+    FreeLibrary(w32handle);
+  w32handle=NULL;
 #endif
-  }
+}
 
 };
 
 const std::string DylibHandle::defaultExtension =
 #ifdef _WIN32
-                               std::string(".dll")
+				    std::string(".dll")
 #elif defined DL_OPEN
-                               std::string(".so")
+				    std::string(".so")
 #else
-                               std::string("")
+				    std::string("")
 #endif
-  ;
-
-
-
-
-Dylib::Dylib(const CPPExtern*obj, const std::string filename, const std::string extension)
-  throw (MyException) :
-  m_handle(0) {
-    m_handle=DylibHandle::open(obj, filename, extension);
-    if(NULL==m_handle) {
-      std::string err="unable to open '";
-      err+=filename;
-      if(!extension.empty()) {
-        err+=".";
-        err+=extension;
-      }
-      err+="'";
-      throw MyException(err);
-    }
-  }
-
+				    ;
 Dylib::Dylib(const std::string filename, const std::string extension) throw (MyException) : m_handle(0) {
-  m_handle=DylibHandle::open(0,   filename, extension);
+  m_handle=DylibHandle::open(filename, extension);
   if(NULL==m_handle) {
     std::string err="unable to open '";
     err+=filename;

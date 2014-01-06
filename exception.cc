@@ -1,67 +1,38 @@
-////////////////////////////////////////////////////////
-//
-// GEM - Graphics Environment for Multimedia
-//
-// zmoelnig@iem.at
-//
-// Implementation file
-//
-//    Copyright (c) 2009-2011 IOhannes m zmölnig. forum::für::umläute. IEM. zmoelnig@iem.at
-//    For information on usage and redistribution, and for a DISCLAIMER OF ALL
-//    WARRANTIES, see the file, "GEM.LICENSE.TERMS" in this distribution.
-//
-/////////////////////////////////////////////////////////
-// for NULL
 #include <new>
+#include "exception.hh"
+#include <iostream>
 
-#include "Exception.h"
-
-// for error()
-#include "m_pd.h"
-
-
-GemException::GemException(const char *error) throw()
+MyException::MyException(const char *error) throw()
   : ErrorString(error)
 {}
 
-GemException::GemException(const std::string error) throw()
+MyException::MyException(const std::string error) throw()
   : ErrorString(error)
 {}
 
-GemException::GemException() throw()
+MyException::MyException() throw()
   : ErrorString(std::string(""))
 {}
-GemException::~GemException() throw()
+MyException::~MyException() throw()
 {}
-const char *GemException::what() const throw() {
+const char *MyException::what() const throw() {
   return ErrorString.c_str();
 }
 
-void GemException::report(const char*origin) const throw() {
+void MyException::report(const char*origin) const throw() {
   if(!(ErrorString.empty())) {
     if (NULL==origin)
-      error("GemException: %s", ErrorString.c_str());
+      std::cerr << "MyException: " << ErrorString << std::endl;
     else
-      error("[%s]: %s", origin, ErrorString.c_str());
+      std::cerr << "[ " << origin << "]: " << ErrorString << std::endl;
   }
 }
 
 
-void gem::catchGemException(const char*name, const t_object*obj) {
+void gem::catchMyException(const char*name) {
   try {
     throw;
-  } catch (GemException&ex) {
-    if(NULL==obj) {
+  } catch (MyException&ex) {
       ex.report(name);
-    } else {
-      t_object*o=(t_object*)obj;
-      char*str=(char*)ex.what();
-      if(NULL!=str) {
-        if (NULL==name)
-          pd_error(o, "GemException: %s", str);
-        else
-          pd_error(o, "[%s]: %s", name, str);
-      }
-    }
   }
 }

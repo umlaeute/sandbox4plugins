@@ -13,26 +13,21 @@ LOG
 #ifndef _INCLUDE__DYLIB_H_
 #define _INCLUDE__DYLIB_H_
 
-//#include "myexception.hh"
+#include "exception.hh"
 #include <string>
 #include "exportdef.hh"
 
 /* an opaque handle to the platform specific library handle */
 class DylibHandle;
-class CPPExtern;
 
 class EXTERN Dylib {
  private:
   DylibHandle*m_handle;
 
  public:
-  Dylib(const CPPExtern*obj,
-	   const std::string libname,
-	   const std::string extension=std::string("")
-	   ) throw(MyException);
   Dylib(const std::string libname,
-	   const std::string extension=std::string("")
-	   ) throw(MyException);
+	const std::string extension=std::string("")
+	) throw(MyException);
 
   Dylib(const Dylib&);
 
