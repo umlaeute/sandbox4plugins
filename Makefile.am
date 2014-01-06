@@ -6,4 +6,5 @@ SUBDIRS=plugins
 bin_PROGRAMS = host
 host_SOURCES = main.cc \
 	dylib.cc \
-	exception.cc
+	exception.cc \
+	pluginfactory.cc plugin.cc
