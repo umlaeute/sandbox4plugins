@@ -84,7 +84,7 @@ Class*PluginFactory<Class>::getInstance(std::string id) {
 }
 
 template<class Class>
-  int PluginFactory<Class>::loadPlugins(std::string basename, std::string path) {
+int PluginFactory<Class>::loadPlugins(std::vector<std::string>&libfiles) {
   PluginFactory<Class>*fac=getPluginFactory();
 #if PLUGFAC_DEBUG
   std::cerr << "loading " << typeid(Class).name() << " plugins from factory: " << (void*)fac << std::endl;
@@ -92,7 +92,7 @@ template<class Class>
   if(NULL==fac) {
     return 0;
   }
-  return fac->doLoadPlugins(basename, path);
+  return fac->doLoadPlugins(libfiles);
 }
 
 template<class Class>

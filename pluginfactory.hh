@@ -52,7 +52,7 @@ class EXPORT PluginFactory : public BasePluginFactory {
   /**
    * load more plugins
    */
-  static int loadPlugins(std::string basename, std::string path=std::string(""));
+  static int loadPlugins(std::vector<std::string>&files);
 
  private:
   static PluginFactory<Class>*s_factory;
