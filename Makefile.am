@@ -1,4 +1,7 @@
 AUTOMAKE_OPTIONS = foreign
+ACLOCAL_AMFLAGS = -I m4
+
+SUBDIRS=plugins
 
 bin_PROGRAMS = host
 host_SOURCES = main.cc \
