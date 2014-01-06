@@ -29,7 +29,7 @@ void MyException::report(const char*origin) const throw() {
 }
 
 
-void gem::catchMyException(const char*name) {
+void catchMyException(const char*name) {
   try {
     throw;
   } catch (MyException&ex) {

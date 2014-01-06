@@ -20,9 +20,7 @@ class EXTERN MyException
   const std::string ErrorString;
 };
 
-namespace gem {
-  EXTERN void catchMyException(const char*name=NULL);
-};
+EXTERN void catchMyException(const char*name=NULL);
 
 
 #endif /* _INCLUDE__EXCEPTION_H_ */
