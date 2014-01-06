@@ -10,36 +10,37 @@ LOG
 
 -----------------------------------------------------------------*/
 
-#ifndef _INCLUDE__GEM_GEM_DYLIB_H_
-#define _INCLUDE__GEM_GEM_DYLIB_H_
+#ifndef _INCLUDE__DYLIB_H_
+#define _INCLUDE__DYLIB_H_
 
-#include "Gem/Exception.h"
-
+//#include "myexception.hh"
+#include <string>
+#include "exportdef.hh"
 
 /* an opaque handle to the platform specific library handle */
-class GemDylibHandle;
+class DylibHandle;
 class CPPExtern;
 
-class GEM_EXTERN GemDylib {
+class EXTERN Dylib {
  private:
-  GemDylibHandle*m_handle;
+  DylibHandle*m_handle;
 
  public:
-  GemDylib(const CPPExtern*obj,
+  Dylib(const CPPExtern*obj,
 	   const std::string libname,
 	   const std::string extension=std::string("")
-	   ) throw(GemException);
-  GemDylib(const std::string libname,
+	   ) throw(MyException);
+  Dylib(const std::string libname,
 	   const std::string extension=std::string("")
-	   ) throw(GemException);
+	   ) throw(MyException);
 
-  GemDylib(const GemDylib&);
+  Dylib(const Dylib&);
 
-  virtual ~GemDylib(void);
+  virtual ~Dylib(void);
 
   typedef void (*function_t)(void);
 
-  virtual GemDylib& operator=(const GemDylib&);
+  virtual Dylib& operator=(const Dylib&);
 
   // if void<procname>(void) exists in dylib, run it and return "true"
   // else return false;
