@@ -5,12 +5,7 @@
 #include "dylib.hh"
 #include "pluginfactory.hh"
 #include "plugin.hh"
-
-
-
-void loadPlugins(std::vector<std::string>args) {
-  PluginFactory<plugin>::loadPlugins(args);
-}
+extern "C" int main (int argc, char**argv);
 
 std::vector<std::string>getCstringArray(int argc, char**argv) {
   std::vector<std::string>result;
@@ -19,14 +14,19 @@ std::vector<std::string>getCstringArray(int argc, char**argv) {
   }
   return result;
 }
-void printStringVec(std::vector<std::string>args) {
+void printStringVec(std::string id, std::vector<std::string>args) {
   unsigned int i=0;
   for(i=0; i<args.size(); i++) {
-    std::cout << "arg["<<i<<"] = " << args[i] << std::endl;
+    std::cout << id << "["<<i<<"] = " << args[i] << std::endl;
   }
 }
 
-extern "C" int main (int argc, char**argv);
+void loadPlugins(std::vector<std::string>args) {
+  PluginFactory<plugin>::loadPlugins(args);
+  std::vector<std::string>ids=PluginFactory<plugin>::getIDs();
+  printStringVec("ID", ids);
+}
+
 int main(int argc, char**argv) {
   std::vector<std::string>args=getCstringArray(argc-1, argv+1);
   loadPlugins(args);
