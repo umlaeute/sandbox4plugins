@@ -4,6 +4,7 @@
 
 #if 0 /* set to 1 to enable some debugging printout */
 # define PLUGFAC_DEBUG 1
+# include <typeinfo>
 #else
 # define PLUGFAC_DEBUG 0
 #endif
