@@ -52,6 +52,7 @@ int BasePluginFactory::doLoadPlugins(std::vector<std::string>files) {
       dll=NULL;
     }
     if(dll){ // loading succeeded
+      dll->run("plugin_setup");
         try {
             m_pimpl->p_loaded.push_back(f);
             count++;
@@ -59,7 +60,6 @@ int BasePluginFactory::doLoadPlugins(std::vector<std::string>files) {
             std::cerr << "plugin loading returned: " << x.what() << std::endl;
         }
     }
-
   }
 
   return count;
