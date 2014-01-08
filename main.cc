@@ -25,6 +25,17 @@ void loadPlugins(std::vector<std::string>args) {
   PluginFactory<plugin>::loadPlugins(args);
   std::vector<std::string>ids=PluginFactory<plugin>::getIDs();
   printStringVec("ID", ids);
+  unsigned int i=0;
+  for(i=0; i<ids.size(); i++) {
+    std::string id=ids[i];
+    plugin*p=PluginFactory<plugin>::getInstance(id);
+    if(p) {
+      std::cout << "plugin['"<<id<<"] = " << (void*)p << std::endl;
+    }
+    p->process(i);
+    delete p;
+  }
+
 }
 
 int main(int argc, char**argv) {
