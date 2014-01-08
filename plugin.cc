@@ -160,3 +160,8 @@ plugin*plugin::getInstance(void) {
 #endif /* PLUGIN_META */
   return result;
 }
+
+
+void host_callback(int i) {
+  std::cout << "HOSTcallback: "<<i<<std::endl;
+}
