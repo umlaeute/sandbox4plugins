@@ -1,7 +1,8 @@
-#ifndef _INCLUDE__PLUGIN_H_
-#define _INCLUDE__PLUGIN_H_
+#ifndef _INCLUDE__PLUGIN_HH_
+#define _INCLUDE__PLUGIN_HH_
 
 #include "exportdef.hh"
+#include "plugin.h"
 #include <string>
 
 class EXTERN plugin
