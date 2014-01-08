@@ -24,8 +24,6 @@ public:
   void close(void) {
     m_name="";
   }
-
-
 };
 
 
