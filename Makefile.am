@@ -9,3 +9,4 @@ pluginhost_SOURCES = main.cc \
 	exception.cc \
 	pluginfactory.cc plugin.cc
 pluginhost_CPPFLAGS = -DINTERNAL
+pluginhost_LDFLAGS  = -export-dynamic
