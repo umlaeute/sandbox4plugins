@@ -2,14 +2,14 @@
 #include "plugin.hh"
 #include "pluginfactory.hh"
 
-class simple : public plugin {
+class plugin_1 : public plugin {
 public:
   std::string m_name;
-  simple(void) : m_name("") {
-    std::cout << "created simple plugin" << std::endl;
+  plugin_1(void) : m_name("") {
+    std::cout << "created plugin_1 plugin" << std::endl;
   }
-  virtual ~simple(void) {
-    std::cout << "destroyed simple plugin" << std::endl;
+  virtual ~plugin_1(void) {
+    std::cout << "destroyed plugin_1 plugin" << std::endl;
   }
   bool open(std::string s) {
     if(m_name.empty()) {
@@ -19,7 +19,7 @@ public:
     return false;
   }
   void process(int id) {
-    std::cout << "plugin(simple)::process " << m_name << ":: " << id << std::endl;
+    std::cout << "plugin(plugin_1)::process " << m_name << ":: " << id << std::endl;
   }
   void close(void) {
     m_name="";
@@ -27,4 +27,4 @@ public:
 };
 
 
-REGISTER_PLUGINFACTORY("simple", simple);
+REGISTER_PLUGINFACTORY("plugin_1", plugin_1);
