@@ -22,15 +22,20 @@ void printStringVec(std::string id, std::vector<std::string>args) {
 }
 
 void loadPlugins(std::vector<std::string>args) {
+  std::cout << "loading plugins" << std::endl;
   PluginFactory<plugin>::loadPlugins(args);
+  std::cout << "loaded plugins" << std::endl << std::endl;
   std::vector<std::string>ids=PluginFactory<plugin>::getIDs();
   printStringVec("ID", ids);
+  std::cout << std::endl;
   unsigned int i=0;
   for(i=0; i<ids.size(); i++) {
     std::string id=ids[i];
+    std::cout << std::endl << "trying \""<<id<<"\""<<std::endl;
+
     plugin*p=PluginFactory<plugin>::getInstance(id);
     if(p) {
-      std::cout << "plugin['"<<id<<"] = " << (void*)p << std::endl;
+      std::cout << "plugin['"<<id<<"'] = " << (void*)p << std::endl;
       p->process(i);
       delete p;
     }
