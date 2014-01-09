@@ -31,9 +31,9 @@ void loadPlugins(std::vector<std::string>args) {
     plugin*p=PluginFactory<plugin>::getInstance(id);
     if(p) {
       std::cout << "plugin['"<<id<<"] = " << (void*)p << std::endl;
+      p->process(i);
+      delete p;
     }
-    p->process(i);
-    delete p;
   }
 
 }
