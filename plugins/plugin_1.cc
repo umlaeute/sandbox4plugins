@@ -19,7 +19,7 @@ public:
     return false;
   }
   void process(int id) {
-    std::cout << "plugin(plugin_1)::process " << m_name << ":: " << id << std::endl;
+    std::cout << "plugin(plugin_1)::process '" << m_name << "':: " << id << std::endl;
   }
   void close(void) {
     m_name="";
