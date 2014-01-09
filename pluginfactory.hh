@@ -32,7 +32,7 @@ class EXPORT PluginFactory : public BasePluginFactory {
   /**
    * constructor function type (without arguments)
    */
-  typedef Class*(ctor_t)(void);
+  typedef Class*(ctor_t)(const std::string);
 
   /**
    * register a a constructor associated with a given ID

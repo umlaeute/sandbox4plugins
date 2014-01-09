@@ -55,7 +55,7 @@ template<class Class>
   Class*PluginFactory<Class>::doGetInstance(std::string id) {
   ctor_t*ctor=(ctor_t*)get(id);
   if(ctor)
-    return ctor();
+    return ctor(id);
   else
     return NULL;
 }
@@ -118,8 +118,8 @@ template<class Class>
 
 namespace PluginFactoryRegistrar {
   template<class ChildClass, class BaseClass>
-    BaseClass* allocator() {
-    ChildClass* res0 = new ChildClass();
+  BaseClass* allocator(const std::string s) {
+    ChildClass* res0 = new ChildClass(s);
     BaseClass* res1 = dynamic_cast<BaseClass*>(res0);
     if(NULL==res1) {
       delete res0;
@@ -129,7 +129,9 @@ namespace PluginFactoryRegistrar {
 
   template<class ChildClass, class BaseClass>
     registrar<ChildClass, BaseClass> :: registrar(std::string id) {
-    PluginFactory<BaseClass>::registerClass(id, allocator<ChildClass, BaseClass>);
+    PluginFactory<BaseClass>::registerClass(
+					    id,
+					    allocator<ChildClass, BaseClass>);
   }
   template<class BaseClass>
     dummy<BaseClass> :: dummy() {
