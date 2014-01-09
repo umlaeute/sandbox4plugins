@@ -165,3 +165,38 @@ plugin*plugin::getInstance(void) {
 void host_callback(int i) {
   std::cout << "HOSTcallback: "<<i<<std::endl;
 }
+
+#if 0
+  typedef struct pluginCallbacks_ {
+    bool(*open)(const char*);
+    void(*process)(int);
+    void(*close)(void);
+  } pluginCallbacks_t;
+#endif
+
+static std::map<std::string, pluginCallbacks_t*>s_cbs;
+
+class pluginC : public plugin {
+  pluginC_t obj;
+  pluginCallbacks_t*m_cb;
+  pluginC(std::string name) : m_cb(s_cbs[name]) {
+    obj=m_cb->constructor();
+  };
+  virtual ~pluginC(void) {
+    m_cb->destructor(obj);
+  };
+  virtual bool open(const std::string s) {
+    return m_cb->open(obj, s.c_str());
+  };
+  virtual void process(int i) {
+    return m_cb->process(obj, i);
+  }
+  virtual void close(void) {
+    return m_cb->close(obj);
+  }
+};
+
+
+void register_plugin(const char*name, pluginCallbacks_t*cb) {
+  s_cbs[name]=cb;
+}
