@@ -5,7 +5,7 @@
 class plugin_1 : public plugin {
 public:
   std::string m_name;
-  plugin_1(void) : m_name("") {
+  plugin_1(std::string s) : m_name(s) {
     std::cout << "created plugin_1 plugin" << std::endl;
   }
   virtual ~plugin_1(void) {
