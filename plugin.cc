@@ -179,24 +179,34 @@ static std::map<std::string, pluginCallbacks_t*>s_cbs;
 class pluginC : public plugin {
   pluginC_t obj;
   pluginCallbacks_t*m_cb;
+public:
   pluginC(std::string name) : m_cb(s_cbs[name]) {
-    obj=m_cb->constructor();
+    MARK();
+    obj=m_cb->constructor(name.c_str());
   };
   virtual ~pluginC(void) {
+    MARK();
     m_cb->destructor(obj);
   };
   virtual bool open(const std::string s) {
+    MARK();
     return m_cb->open(obj, s.c_str());
   };
   virtual void process(int i) {
+    MARK();
     return m_cb->process(obj, i);
   }
   virtual void close(void) {
+    MARK();
     return m_cb->close(obj);
   }
 };
 
 
-void register_plugin(const char*name, pluginCallbacks_t*cb) {
+void register_plugin(const char*name, const pluginCallbacks_t*cb0) {
+  pluginCallbacks_t*cb=new pluginCallbacks_t;
+  //memcpy(cb, cb0, sizeof(pluginCallbacks_t));
+  *cb=*cb0;
   s_cbs[name]=cb;
+  PluginFactoryRegistrar::registrar<pluginC, plugin>*registerC=new PluginFactoryRegistrar::registrar<pluginC, plugin>(name);
 }
