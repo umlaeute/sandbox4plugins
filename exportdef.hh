@@ -54,4 +54,8 @@
 # define EXTERN IMPORT
 #endif
 
+#include <stdio.h>
+#define MARK() printf("%s[%d]: %s\n", __FILE__, __LINE__, __func__)
+
+
 #endif	// for header file
