@@ -8,9 +8,10 @@ if WINDOWS
 AM_LDFLAGS += -no-undefined
 endif
 
-pkglib_LTLIBRARIES= pluginC_0.la plugin_1.la
+pkglib_LTLIBRARIES= pluginC_0.la plugin_1.la pluginC_1.la
 
 ### SOURCES
 pluginC_0_la_SOURCES= pluginC_0.c
 plugin_1_la_SOURCES= plugin_1.cc
 
+pluginC_1_la_SOURCES= pluginC_1.c
