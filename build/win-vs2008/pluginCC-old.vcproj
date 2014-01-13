@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9,00"
 	Name="pluginCC-old"
-	ProjectGUID="{E2ACC7EE-AB98-444D-9771-C7625AB6E1E1}"
+	ProjectGUID="{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}"
 	RootNamespace="pluginCCold"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
@@ -176,12 +176,6 @@
 				RelativePath="..\..\old\pluginCC.cc"
 				>
 			</File>
-		</Filter>
-		<Filter
-			Name="Headerdateien"
-			Filter="h;hpp;hxx;hh;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
 		</Filter>
 	</Files>
 	<Globals>
