@@ -3,7 +3,7 @@
 #include "pluginfactory.hh"
 #include "exception.hh"
 
-plugin :: ~plugin(void) {}
+plugin :: ~plugin() {}
 /* initialize the plugin factory */
 static PluginFactoryRegistrar::dummy<plugin> fac_plugindummy;
 
@@ -154,7 +154,7 @@ public:
 };
 #endif /* PLUGIN_META */
 
-plugin*plugin::getInstance(void) {
+plugin*plugin::getInstance() {
   plugin*result=0;
 #ifdef PLUGIN_META
   result=new pluginMeta();

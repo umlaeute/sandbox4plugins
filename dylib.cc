@@ -69,7 +69,7 @@ public:
 #ifdef _WIN32
     UINT errorboxflags=SetErrorMode(SEM_FAILCRITICALERRORS);
     SetLastError(0);
-    handle->w32handle=LoadLibrary(filename.c_str()));
+    handle->w32handle=LoadLibrary(filename.c_str());
   DWORD errorNumber = GetLastError();
   errorboxflags=SetErrorMode(errorboxflags);
   if(handle->w32handle) {
