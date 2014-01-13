@@ -7,12 +7,12 @@
 extern "C" {
 #endif /* c++ */
 
-  void host_callback(int);
+  EXTERN void host_callback(int);
 
 #if defined(_LANGUAGE_C_PLUS_PLUS) || defined(__cplusplus)
   struct pluginCstruct_t;
 #else
-  struct pluginCstruct_ { } pluginCstruct_t;
+  struct pluginCstruct_ { int x; } pluginCstruct_t;
 
 #endif
 
@@ -31,7 +31,7 @@ extern "C" {
     pluginC_close_t close;
   } pluginCallbacks_t;
 
-  void register_plugin(const char*name, const pluginCallbacks_t*);
+  EXTERN void register_plugin(const char*name, const pluginCallbacks_t*);
 
 #if defined(_LANGUAGE_C_PLUS_PLUS) || defined(__cplusplus)
 }
