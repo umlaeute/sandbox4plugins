@@ -36,21 +36,23 @@ extern "C" {
 #if defined(_LANGUAGE_C_PLUS_PLUS) || defined(__cplusplus)
 }
 
-class EXTERN pluginC
+#ifndef _INCLUDE__PLUGIN_HH_
+#define _INCLUDE__PLUGIN_HH_
+class EXTERN plugin
 {
  public:
-  virtual ~pluginC(void) {};
+  virtual ~plugin(void) {};
 
   virtual bool open(const std::string) = 0;
   virtual void process(int) = 0;
   virtual void close(void) = 0;
 
  public:
-  //static inline pluginC*constructor(const char*s) { return new pluginC(s); }
-  static inline void s_destructor(pluginC*obj) {delete obj;}
-  static inline  int s_open(pluginC*obj, const char*s) {return obj->open(s);}
-  static inline void s_process(pluginC*obj, int i) {return obj->process(i);}
-  static inline void s_close(pluginC*obj) {return obj->close();}
+  //static inline plugin*constructor(const char*s) { return new plugin(s); }
+  static inline void s_destructor(plugin*obj) {delete obj;}
+  static inline  int s_open(plugin*obj, const char*s) {return obj->open(s);}
+  static inline void s_process(plugin*obj, int i) {return obj->process(i);}
+  static inline void s_close(plugin*obj) {return obj->close();}
 };
 #ifdef REGISTER_PLUGINFACTORY
 # undef REGISTER_PLUGINFACTORY
@@ -78,8 +80,8 @@ namespace PluginFactoryRegistrar {
   };
 }
 #define REGISTER_PLUGINFACTORY(id,TYP) \
-   static PluginFactoryRegistrar::registrarC<TYP, pluginC> fac_plugin_ ## TYP (id)
-
+   static PluginFactoryRegistrar::registrarC<TYP, plugin> fac_plugin_ ## TYP (id)
+#endif /* _INCLUDE__PLUGIN_HH_ */
 #endif /* c++ */
 
 #endif	// for header file
