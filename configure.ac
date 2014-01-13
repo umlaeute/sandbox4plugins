@@ -16,5 +16,5 @@ AC_LANG(C++)
 AC_SEARCH_LIBS([dlopen], [dl])
 
 
-AC_CONFIG_FILES([Makefile plugins/Makefile])
+AC_CONFIG_FILES([Makefile plugins/Makefile old/Makefile])
 AC_OUTPUT
