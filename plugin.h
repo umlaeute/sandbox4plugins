@@ -38,7 +38,7 @@ extern "C" {
 
 #ifndef _INCLUDE__PLUGIN_HH_
 #define _INCLUDE__PLUGIN_HH_
-class EXTERN plugin
+class plugin
 {
  public:
   virtual ~plugin(void) {};

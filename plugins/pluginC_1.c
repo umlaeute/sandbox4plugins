@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MARK() printf("%s[%d]: %s\n", __FILE__, __LINE__, __func__)
-
 typedef struct pluginC1_ {
   int id;
   char*name;
@@ -37,7 +35,7 @@ void plug_process(pluginC_t p, int i) { pluginC1_t*plug=(pluginC1_t*)p;
   printf("...processing[%s]: %d vs %d\n", plug->name, plug->id, i);
 }
 
-void plugin_setup(void) {
+EXPORT void plugin_setup(void) {
   pluginCallbacks_t cb;
   MARK();
   cb.constructor=plug_ctor;
