@@ -1,4 +1,5 @@
 #include "plugin.hh"
+#include "plugin.h"
 #include "pluginfactory.hh"
 #include "exception.hh"
 
