@@ -176,15 +176,15 @@ void host_callback(int i) {
 
 static std::map<std::string, pluginCallbacks_t*>s_cbs;
 
-class pluginC : public plugin {
+class pluginCwrapper : public plugin {
   pluginC_t obj;
   pluginCallbacks_t*m_cb;
 public:
-  pluginC(std::string name) : m_cb(s_cbs[name]) {
+  pluginCwrapper(std::string name) : m_cb(s_cbs[name]) {
     MARK();
     obj=m_cb->constructor(name.c_str());
   };
-  virtual ~pluginC(void) {
+  virtual ~pluginCwrapper(void) {
     MARK();
     m_cb->destructor(obj);
   };
@@ -208,5 +208,6 @@ void register_plugin(const char*name, const pluginCallbacks_t*cb0) {
   //memcpy(cb, cb0, sizeof(pluginCallbacks_t));
   *cb=*cb0;
   s_cbs[name]=cb;
-  PluginFactoryRegistrar::registrar<pluginC, plugin>*registerC=new PluginFactoryRegistrar::registrar<pluginC, plugin>(name);
+  PluginFactoryRegistrar::registrar<pluginCwrapper, plugin>*registerC=
+    new PluginFactoryRegistrar::registrar<pluginCwrapper, plugin>(name);
 }
