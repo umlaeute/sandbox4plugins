@@ -6,12 +6,13 @@ class simple : public plugin {
 public:
   std::string m_name;
   simple(void) : m_name("") {
-    std::cout << "created simple plugin" << std::endl;
+	  MARK();
   }
   virtual ~simple(void) {
-    std::cout << "destroyed simple plugin" << std::endl;
+	  MARK();
   }
   bool open(std::string s) {
+	  MARK();
     if(m_name.empty()) {
       m_name=s;
       return true;
@@ -19,9 +20,11 @@ public:
     return false;
   }
   void process(int id) {
+	  MARK();
     std::cout << "plugin(simple)::process " << m_name << ":: " << id << std::endl;
   }
   void close(void) {
+	  MARK();
     m_name="";
   }
 };
