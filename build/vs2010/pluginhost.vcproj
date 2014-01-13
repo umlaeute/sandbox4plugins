@@ -171,57 +171,57 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\..\dylib.cc"
+				RelativePath="..\..\dylib.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\exception.cc"
+				RelativePath="..\..\exception.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\main.cc"
+				RelativePath="..\..\main.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\plugin.cc"
+				RelativePath="..\..\plugin.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\pluginfactory.cc"
+				RelativePath="..\..\pluginfactory.cc"
 				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Headerdateien"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			Filter="h;hpp;hh;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\..\..\dylib.hh"
+				RelativePath="..\..\dylib.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\exception.hh"
+				RelativePath="..\..\exception.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\exportdef.hh"
+				RelativePath="..\..\exportdef.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\plugin.h"
+				RelativePath="..\..\plugin.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\plugin.hh"
+				RelativePath="..\..\plugin.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\pluginfactory.hh"
+				RelativePath="..\..\pluginfactory.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\pluginfactory_timple.hh"
+				RelativePath="..\..\pluginfactory_timple.hh"
 				>
 			</File>
 		</Filter>
