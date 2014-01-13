@@ -191,7 +191,7 @@ public:
   };
   virtual bool open(const std::string s) {
     MARK();
-    return m_cb->open(obj, s.c_str());
+    return (0 != m_cb->open(obj, s.c_str()));
   };
   virtual void process(int i) {
     MARK();
