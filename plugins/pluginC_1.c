@@ -17,22 +17,22 @@ pluginC_t plug_ctor(const char*s) {
   MARK();
   return(pluginC_t)result;
 }
-void plug_dtor(pluginC_t*p) { pluginC1_t*plug=(pluginC1_t*)p;
+void plug_dtor(pluginC_t p) { pluginC1_t*plug=(pluginC1_t*)p;
   MARK();
   free(plug->name); plug->name=NULL;
   free(plug);
 }
-int plug_open(pluginC_t*p, const char*s) { pluginC1_t*plug=(pluginC1_t*)p;
+int plug_open(pluginC_t p, const char*s) { pluginC1_t*plug=(pluginC1_t*)p;
   MARK();
   if(!strcmp("fail", s))
     return 0;
 
   return 1;
 }
-void plug_close(pluginC_t*p) { pluginC1_t*plug=(pluginC1_t*)p;
+void plug_close(pluginC_t p) { pluginC1_t*plug=(pluginC1_t*)p;
   MARK();
 }
-void plug_process(pluginC_t*p, int i) { pluginC1_t*plug=(pluginC1_t*)p;
+void plug_process(pluginC_t p, int i) { pluginC1_t*plug=(pluginC1_t*)p;
   MARK();
   printf("...processing[%s]: %d vs %d\n", plug->name, plug->id, i);
 }
