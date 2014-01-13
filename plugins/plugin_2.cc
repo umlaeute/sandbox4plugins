@@ -2,7 +2,7 @@
 #include "plugin.h"
 #include "pluginfactory.hh"
 
-class plugin_2 : public pluginC {
+class plugin_2 : public plugin {
 public:
   std::string m_name;
   plugin_2(std::string s) : m_name(s) {
