@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginhost", "pluginhost.vcproj", "{688FF122-C673-4C51-9AAD-16D93372C9A9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginC-0", "pluginC-0.vcproj", "{E2ACC7EE-AB98-444D-9771-C7625AB6E1E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{688FF122-C673-4C51-9AAD-16D93372C9A9} = {688FF122-C673-4C51-9AAD-16D93372C9A9}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +18,10 @@ Global
 		{688FF122-C673-4C51-9AAD-16D93372C9A9}.Debug|Win32.Build.0 = Debug|Win32
 		{688FF122-C673-4C51-9AAD-16D93372C9A9}.Release|Win32.ActiveCfg = Release|Win32
 		{688FF122-C673-4C51-9AAD-16D93372C9A9}.Release|Win32.Build.0 = Release|Win32
+		{E2ACC7EE-AB98-444D-9771-C7625AB6E1E1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2ACC7EE-AB98-444D-9771-C7625AB6E1E1}.Debug|Win32.Build.0 = Debug|Win32
+		{E2ACC7EE-AB98-444D-9771-C7625AB6E1E1}.Release|Win32.ActiveCfg = Release|Win32
+		{E2ACC7EE-AB98-444D-9771-C7625AB6E1E1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
