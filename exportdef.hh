@@ -56,7 +56,7 @@
 
 #include <stdio.h>
 #ifdef _WIN32
-# define MARK() printf("%s[%d]\n", __FILE__, __LINE__)
+# define MARK() printf("%s[%d]: %s\n", __FILE__, __LINE__, __FUNCTION__)
 #else
 # define MARK() printf("%s[%d]: %s\n", __FILE__, __LINE__, __func__)
 #endif
