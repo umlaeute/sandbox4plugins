@@ -1,5 +1,5 @@
 AC_PREREQ([2.60])
-AC_INIT([cpp-plugins], [0.1], [zmoelnig@iem.at], [cpp-plugin], [https://github.com/umlaeute/cpp-plugin/])
+AC_INIT([sandbox4plugins], [0.1], [zmoelnig@iem.at], [sandbox4plugins], [https://github.com/umlaeute/sandbox4plugins/])
 AM_INIT_AUTOMAKE([1.10 foreign])
 AC_CONFIG_MACRO_DIR([m4])
 
