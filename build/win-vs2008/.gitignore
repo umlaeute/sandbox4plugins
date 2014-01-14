@@ -11,3 +11,5 @@ obj/
 *.exp
 *.lib
 *.obj
+*.ncb
+*.suo
