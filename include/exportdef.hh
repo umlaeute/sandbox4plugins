@@ -1,7 +1,7 @@
 #ifndef _INCLUDE__EXPORTDEF_H_
 #define _INCLUDE__EXPORTDEF_H_
 
-#if defined _MSC_VER
+#if (defined _MSC_VER) || (defined __MINGW32__)
 /* turn of some warnings on vc-compilers */
 
 /* data conversion with possible loss of data */
@@ -20,9 +20,11 @@
 # define _CRT_SECURE_NO_WARNINGS 1
 
 /* MSVC always uses dllimport/dllexport */
-#define DLL_EXPORT
+# ifndef DLL_EXPORT
+#  define DLL_EXPORT
+# endif /* DLL_EXPORT */
 
-#endif /* _MSC_VER */
+#endif /* _MSC_VER || MINGW */
 
 
 #ifdef DLL_EXPORT
