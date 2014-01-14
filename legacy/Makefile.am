@@ -6,6 +6,7 @@ AM_LDFLAGS  = -module -avoid-version -shared
 
 if WINDOWS
 AM_LDFLAGS += -no-undefined
+AM_LDFLAGS += -Xlinker "$(top_builddir)/host/legacyhost.lib"
 endif
 
 pkglib_LTLIBRARIES= pluginC.la pluginCC.la
