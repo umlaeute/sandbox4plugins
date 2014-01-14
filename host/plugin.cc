@@ -167,13 +167,7 @@ void host_callback(int i) {
   std::cout << "HOSTcallback: "<<i<<std::endl;
 }
 
-#if 0
-  typedef struct pluginCallbacks_ {
-    bool(*open)(const char*);
-    void(*process)(int);
-    void(*close)(void);
-  } pluginCallbacks_t;
-#endif
+#ifndef PLUGINHOST_LEGACY
 
 static std::map<std::string, pluginCallbacks_t*>s_cbs;
 
@@ -212,3 +206,5 @@ void register_plugin(const char*name, const pluginCallbacks_t*cb0) {
   PluginFactoryRegistrar::registrar<pluginCwrapper, plugin>*registerC=
     new PluginFactoryRegistrar::registrar<pluginCwrapper, plugin>(name);
 }
+
+#endif /* PLUGINHOST_LEGACY */
