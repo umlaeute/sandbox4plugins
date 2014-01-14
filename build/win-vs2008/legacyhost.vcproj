@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9,00"
 	Name="legacyhost"
-	ProjectGUID="{688FF122-C673-4C51-9AAD-16D93372C9A9}"
+	ProjectGUID="{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}"
 	RootNamespace="legacyhost"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
@@ -19,6 +19,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
 			ConfigurationType="1"
 			CharacterSet="2"
 			>
@@ -40,7 +41,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;INTERNAL:PLUGINHOST_LEGACY"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)\..\..\legacy&quot;;&quot;$(SolutionDir)\..\..\include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;INTERNAL;PLUGINHOST_LEGACY"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -89,6 +91,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
 			ConfigurationType="1"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -112,7 +115,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;PLUGINHOST_LEGACY"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;INTERNAL;PLUGINHOST_LEGACY"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
