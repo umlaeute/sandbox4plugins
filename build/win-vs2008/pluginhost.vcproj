@@ -169,23 +169,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\dylib.cc"
+				RelativePath="..\..\host\dylib.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\exception.cc"
+				RelativePath="..\..\host\exception.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\main.cc"
+				RelativePath="..\..\host\main.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\plugin.cc"
+				RelativePath="..\..\host\plugin.cc"
 				>
 			</File>
 			<File
-				RelativePath="..\..\pluginfactory.cc"
+				RelativePath="..\..\host\pluginfactory.cc"
 				>
 			</File>
 		</Filter>
@@ -195,31 +195,31 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\dylib.hh"
+				RelativePath="..\..\host\dylib.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\exception.hh"
+				RelativePath="..\..\host\exception.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\exportdef.hh"
+				RelativePath="..\..\host\exportdef.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\plugin.h"
+				RelativePath="..\..\host\plugin.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\plugin.hh"
+				RelativePath="..\..\host\plugin.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\pluginfactory.hh"
+				RelativePath="..\..\host\pluginfactory.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\pluginfactory_timple.hh"
+				RelativePath="..\..\host\pluginfactory_timple.hh"
 				>
 			</File>
 		</Filter>
