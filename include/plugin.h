@@ -60,7 +60,7 @@ class plugin
 
 namespace PluginFactoryRegistrar {
   template<class ChildClass, class BaseClass>
-  class registrarC {
+  class EXPORT registrarC {
   private:
     static inline pluginC_t allocator(const char*s) {
 	ChildClass*obj=new ChildClass(s);
