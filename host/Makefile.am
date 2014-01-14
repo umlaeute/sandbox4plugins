@@ -6,5 +6,5 @@ pluginhost_SOURCES = main.cc \
 	dylib.cc \
 	exception.cc \
 	pluginfactory.cc plugin.cc
-pluginhost_CPPFLAGS = -DINTERNAL
+pluginhost_CPPFLAGS = -DINTERNAL -I$(top_srcdir)/include
 pluginhost_LDFLAGS  = -export-dynamic

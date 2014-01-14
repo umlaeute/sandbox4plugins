@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -I$(srcdir) -I$(top_srcdir)/host
+AM_CPPFLAGS = -I$(srcdir) -I$(top_srcdir)/include
 AM_CFLAGS   =
 AM_CXXFLAGS =
 #AM_LIBADD   = -L$(top_builddir)
