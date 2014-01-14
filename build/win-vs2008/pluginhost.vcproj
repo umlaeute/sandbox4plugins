@@ -195,31 +195,31 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\host\dylib.hh"
+				RelativePath="..\..\include\dylib.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\host\exception.hh"
+				RelativePath="..\..\include\exception.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\host\exportdef.hh"
+				RelativePath="..\..\include\exportdef.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\host\plugin.h"
+				RelativePath="..\..\include\plugin.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\host\plugin.hh"
+				RelativePath="..\..\include\plugin.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\host\pluginfactory.hh"
+				RelativePath="..\..\include\pluginfactory.hh"
 				>
 			</File>
 			<File
-				RelativePath="..\..\host\pluginfactory_timple.hh"
+				RelativePath="..\..\include\pluginfactory_timple.hh"
 				>
 			</File>
 		</Filter>

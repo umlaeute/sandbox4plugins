@@ -7,7 +7,7 @@
 	>
 	<Tool
 		Name="VCCLCompilerTool"
-		AdditionalIncludeDirectories=".;&quot;$(SolutionDir)\..\..\host&quot;"
+		AdditionalIncludeDirectories=".;&quot;$(SolutionDir)\..\..\include&quot;"
 	/>
 	<Tool
 		Name="VCLinkerTool"
