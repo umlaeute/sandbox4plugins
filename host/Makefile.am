@@ -18,10 +18,12 @@ pluginhost_SOURCES = main.cc \
 	exception.cc \
 	pluginfactory.cc plugin.cc
 pluginhost_CPPFLAGS += -I$(top_srcdir)/include
+pluginhost_LDFLAGS  += -Wl,--out-implib,pluginhost.lib
 
 legacyhost_SOURCES = main.cc \
 	dylib.cc \
 	exception.cc \
 	pluginfactory.cc plugin.cc
 legacyhost_CPPFLAGS += -DPLUGINHOST_LEGACY -I$(top_srcdir)/legacy -I$(top_srcdir)/include
+legacyhost_LDFLAGS  += -Wl,--out-implib,legacyhost.lib
 
