@@ -1,7 +1,5 @@
 #include "plugin.hh"
-#ifndef PLUGINHOST_LEGACY
-# include "plugin.h"
-#endif /* PLUGINHOST_LEGACY */
+#include "plugin.h"
 #include "pluginfactory.hh"
 #include "exception.hh"
 
