@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="pluginCC-old"
+	Name="pluginCC-legacy"
 	ProjectGUID="{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}"
-	RootNamespace="pluginCCold"
+	RootNamespace="pluginCClegacy"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -171,7 +171,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\old\pluginCC.cc"
+				RelativePath="..\..\legacy\pluginCC.cc"
 				>
 			</File>
 		</Filter>
