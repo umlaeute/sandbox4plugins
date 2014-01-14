@@ -11,7 +11,7 @@ public:
   virtual ~pluginCC_1(void) {
 	  MARK();
   }
-  bool open(std::string s) {
+  bool open(const std::string s) {
 	  MARK();
     if(m_name.empty()) {
       m_name=s;
