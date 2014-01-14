@@ -25,13 +25,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginCC-2", "pluginCC-2.vc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginC-legacy", "pluginC-legacy.vcproj", "{B8A69AFA-FCE1-4811-A7FB-B60413A0277D}"
 	ProjectSection(ProjectDependencies) = postProject
-		{688FF122-C673-4C51-9AAD-16D93372C9A9} = {688FF122-C673-4C51-9AAD-16D93372C9A9}
+		{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E} = {91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginCC-legacy", "pluginCC-legacy.vcproj", "{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}"
 	ProjectSection(ProjectDependencies) = postProject
-		{688FF122-C673-4C51-9AAD-16D93372C9A9} = {688FF122-C673-4C51-9AAD-16D93372C9A9}
+		{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E} = {91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "legacyhost", "legacyhost.vcproj", "{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,13 +62,16 @@ Global
 		{BB886DA5-C40C-4EBD-87E8-3964BE678DA0}.Release|Win32.ActiveCfg = Release|Win32
 		{BB886DA5-C40C-4EBD-87E8-3964BE678DA0}.Release|Win32.Build.0 = Release|Win32
 		{B8A69AFA-FCE1-4811-A7FB-B60413A0277D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B8A69AFA-FCE1-4811-A7FB-B60413A0277D}.Debug|Win32.Build.0 = Debug|Win32
 		{B8A69AFA-FCE1-4811-A7FB-B60413A0277D}.Release|Win32.ActiveCfg = Release|Win32
 		{B8A69AFA-FCE1-4811-A7FB-B60413A0277D}.Release|Win32.Build.0 = Release|Win32
 		{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}.Debug|Win32.ActiveCfg = Debug|Win32
 		{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}.Debug|Win32.Build.0 = Debug|Win32
 		{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}.Release|Win32.ActiveCfg = Release|Win32
 		{38CC345F-FCBF-4B67-BEB7-AD4BDE0F53F9}.Release|Win32.Build.0 = Release|Win32
+		{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}.Debug|Win32.Build.0 = Debug|Win32
+		{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}.Release|Win32.ActiveCfg = Release|Win32
+		{91E27DA8-AE08-4EEE-BD24-925E0F8B9A2E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
