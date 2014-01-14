@@ -175,12 +175,6 @@
 				>
 			</File>
 		</Filter>
-		<Filter
-			Name="Headerdateien"
-			Filter="h;hpp;hxx;hh;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-		</Filter>
 	</Files>
 	<Globals>
 	</Globals>
